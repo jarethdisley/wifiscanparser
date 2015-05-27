@@ -23,15 +23,17 @@ type WifiScanParser struct {
 
 // WifiInfo represents meta data about a WIFI network
 type WifiInfo struct {
-	SSID, BSSID string
-	RSSI        int
-	Channel     string
-	HT          bool
-	CountryCode string
-	Security    string
+	SSID        string `json:"ssid"`
+	BSSID       string `json:"bssid"`
+	RSSI        int    `json:"rssi"`
+	Channel     string `json:"channel"`
+	HT          bool   `json:"ht"`
+	CountryCode string `json:"countryCode"`
+	Security    string `json:"security"`
 }
 
-func (wfi *WifiInfo) toString() string {
+// ToString pretty prints the WiFiInfo struct
+func (wfi *WifiInfo) ToString() string {
 	return fmt.Sprintf("WifiInfo:\n\tSSID: %s\n\tBSSID: %s\n\tRSSI: %d\n\tChannel: %s\n\tHT: %t\n\tContryCode: %s\n\tSecurity: %s", wfi.SSID, wfi.BSSID, wfi.RSSI, wfi.Channel, wfi.HT, wfi.CountryCode, wfi.Security)
 }
 
@@ -84,7 +86,6 @@ func (wsp *WifiScanParser) Parse() []*WifiInfo {
 	for scanner.Scan() {
 		network := processSubmatch(re.FindStringSubmatch(scanner.Text()))
 		if network != nil {
-			fmt.Println(network.toString())
 			networks = append(networks, network)
 		}
 	}

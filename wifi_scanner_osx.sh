@@ -2,7 +2,7 @@ echo "Enter prefix line: "
 read PREFIX
 
 today_date=`date +%Y-%m-%d`
-dir=data/$PREFIX/scan_$today_date
+dir=/mapper_data/$PREFIX/scan_$today_date
 mkdir -p $dir
 echo $dir
 

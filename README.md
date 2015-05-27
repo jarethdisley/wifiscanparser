@@ -10,17 +10,17 @@ Also included within this package is a utility script that will call the
 Use the utility as follows (Enter a prefix when prompted):
 
 ```
-./wifi_scanner_osx.sh
+sudo /wifi_scanner_osx.sh
 ```
 
 This will scan for WiFi networks every 30 seconds and store them in the
-following structure:
+following location / structure:
 
 ```
-data/
-data/prefix/
-data/prefix/scan_YYYY-MM-DD                 (Current data)
-data/prefix/scan_YYYY-MM-DD/scan_HH:MM:SS   (Current time)
+/mapper_data/
+/mapper_data/prefix/
+/mapper_data/prefix/scan_YYYY-MM-DD                 (Current data)
+/mapper_data/prefix/scan_YYYY-MM-DD/scan_HH:MM:SS   (Current time)
 ```
 
 Scans can stopped using CTRL+C
